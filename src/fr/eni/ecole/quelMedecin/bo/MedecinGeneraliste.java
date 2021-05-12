@@ -5,6 +5,7 @@ public class MedecinGeneraliste {
     private String nom;
     private String prenom;
     private String numeroDeTelephone;
+    private Adresse adresse;
 
     public static int tarif = 25;
 
@@ -12,10 +13,11 @@ public class MedecinGeneraliste {
 
     }
 
-    public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone) {
+    public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone, Adresse adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
+        this.adresse = adresse;
     }
 
     public String getNom() {
@@ -39,6 +41,7 @@ public class MedecinGeneraliste {
     }
 
     public void afficher() {
-        System.out.printf("%s %s%nTéléphone : %s%nTarif : %d€%n", this.nom, this.prenom, this.numeroDeTelephone, MedecinGeneraliste.getTarif());
+        System.out.printf("%s %s%nTéléphone : %s%nTarif : %d€%nAdresse :%n", this.nom, this.prenom, this.numeroDeTelephone, MedecinGeneraliste.getTarif());
+        this.adresse.afficher();
     }
 }

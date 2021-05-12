@@ -20,6 +20,7 @@ public class Patient {
     private long numeroDeSecuriteSociale;
     private LocalDate dateDeNaissance;
     private String commentaires;
+    private Adresse adresse;
 
 
     /** Constructeur sans paramètres
@@ -33,6 +34,7 @@ public class Patient {
         this.numeroDeSecuriteSociale = 0L;
         this.dateDeNaissance = null;
         this.commentaires = null;
+        this.adresse = null;
     }
 
     /** Constructeur avec tous les paramètres sauf commentaire
@@ -43,13 +45,15 @@ public class Patient {
      * @param sexe char
      * @param numeroDeSecuriteSociale long
      * @param dateDeNaissance LocalDate
+     * @param adresse Adresse
      */
     public Patient(String nom,
                    String prenom,
                    String numeroDeTelephone,
                    char sexe,
                    long numeroDeSecuriteSociale,
-                   LocalDate dateDeNaissance) {
+                   LocalDate dateDeNaissance,
+                   Adresse adresse) {
 
         this.nom = nom;
         this.prenom = prenom;
@@ -57,16 +61,17 @@ public class Patient {
         this.sexe = sexe;
         this.numeroDeSecuriteSociale = numeroDeSecuriteSociale;
         this.dateDeNaissance = dateDeNaissance;
+        this.adresse = adresse;
 
         switch (sexe) {
             case 'F':
-                sexeString = "Féminin";
+                this.sexeString = "Féminin";
                 break;
             case 'M':
-                sexeString = "Masculin";
+                this.sexeString = "Masculin";
                 break;
             default:
-                sexeString = "Autre";
+                this.sexeString = "Autre";
         }
 
         this.commentaires = "[aucun commentaire]";
@@ -81,6 +86,7 @@ public class Patient {
      * @param numeroDeSecuriteSociale long
      * @param dateDeNaissance LocalDate
      * @param commentaires String
+     * @param adresse Adresse
      */
     public Patient(String nom,
                    String prenom,
@@ -88,9 +94,10 @@ public class Patient {
                    char sexe,
                    long numeroDeSecuriteSociale,
                    LocalDate dateDeNaissance,
-                   String commentaires) {
+                   String commentaires,
+                   Adresse adresse) {
 
-        this(nom,prenom,numeroDeTelephone,sexe,numeroDeSecuriteSociale,dateDeNaissance);
+        this(nom,prenom,numeroDeTelephone,sexe,numeroDeSecuriteSociale,dateDeNaissance, adresse);
 
         if (commentaires == null) {
             this.commentaires = "[aucun commentaire]";
@@ -105,7 +112,7 @@ public class Patient {
      */
     public void afficher() {
         System.out.printf(
-                "%s %s%nTéléphone : %s%nSexe : %s%nNuméro de sécurité sociale : %d%nDate de naissance %s%nCommentaires : %s%n",
+                "%s %s%nTéléphone : %s%nSexe : %s%nNuméro de sécurité sociale : %d%nDate de naissance %s%nCommentaires : %s%nAdresse :%n",
                 this.nom.toUpperCase(),
                 this.prenom,
                 this.numeroDeTelephone,
@@ -114,6 +121,7 @@ public class Patient {
                 this.dateDeNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)),
                 this.commentaires
         );
+        this.adresse.afficher();
     }
 
 }
