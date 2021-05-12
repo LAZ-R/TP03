@@ -28,7 +28,7 @@ public class Adresse {
         this.mentionsComplementaires = null;
     }*/
 
-    /** Constructeur avec paramètres sauf "mentions complémentaires"
+    /** Constructeur avec paramètres sauf "mentions complémentaires" <br>
      *  Il attribue une valeur null aux mentions complémentaires
      *
      * @param numeroDeLaVoie int
@@ -73,6 +73,10 @@ public class Adresse {
 
     }
 
+    /** Methode d'affichage de l'adresse
+     *  4 affichages possibles en fonction
+     *  des paramètres renseignés
+     */
     public void afficher() {
         if (this.mentionsComplementaires != null) {
             if (this.complementNumeroVoie != null) {
