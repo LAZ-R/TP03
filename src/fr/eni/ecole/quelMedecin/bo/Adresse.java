@@ -18,7 +18,7 @@ public class Adresse {
     /** Constructeur sans paramètres
      *  Il attribue des valeurs nulles ou assimilées.
      */
-    /*
+    /* FIXME: erreurs à cause du nombre d'attributs
     public Adresse() {
         this.numeroDeLaVoie = 0;
         this.complementNumeroVoie = null;
