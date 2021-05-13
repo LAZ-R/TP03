@@ -5,13 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Locale;
 
-/** Classe Patient
+/** Classe qui représente un patient.
  *
  * @author laz_R
  * @version 1.0
  */
 public class Patient {
 
+    // Attributs d'instances
     private String nom;
     private String prenom;
     private String numeroDeTelephone;
@@ -22,9 +23,12 @@ public class Patient {
     private String commentaires;
     private Adresse adresse;
 
+    // Attributs de classe
 
-    /** Constructeur sans paramètres
-     *  Il attribue des valeurs nulles ou assimilées
+    // Méthodes
+
+    /** Constructeur sans paramètres.<br>
+     *  Il attribue des valeurs nulles (ou assimilées).
      */
     public Patient() {
         this.nom = "inconnu";
@@ -37,7 +41,7 @@ public class Patient {
         this.adresse = null;
     }
 
-    /** Constructeur avec tous les paramètres sauf commentaire
+    /** Constructeur avec tous les paramètres sauf "Commentaires".
      *
      * @param nom String
      * @param prenom String
@@ -77,8 +81,8 @@ public class Patient {
         this.commentaires = "[aucun commentaire]";
     }
 
-    /**
-     * Constructeur avec tous les paramètres
+    /** Constructeur avec tous les paramètres.
+     *
      * @param nom String
      * @param prenom String
      * @param numeroDeTelephone String
@@ -107,8 +111,7 @@ public class Patient {
         }
     }
 
-    /**
-     * Méthode d'affichage des informations d'un patient
+    /** Méthode d'affichage des informations d'un patient.
      */
     public void afficher() {
         System.out.printf(

@@ -1,12 +1,13 @@
 package fr.eni.ecole.quelMedecin.bo;
 
-/** Classe qui représente une adresse
+/** Classe qui représente une adresse.
  *
  * @author laz_R
  * @version 1.0
  */
 public class Adresse {
 
+    // Attributs d'instances
     private String mentionsComplementaires;
     private int numeroDeLaVoie;
     private String complementNumeroVoie;
@@ -14,22 +15,17 @@ public class Adresse {
     private int codePostal;
     private String nomDeLaCommune;
 
+    ///Attributs de classe
 
-    /** Constructeur sans paramètres
-     *  Il attribue des valeurs nulles ou assimilées.
+    // Méthodes
+
+    /** Constructeur sans paramètres.
      */
-    /* FIXME: erreurs à cause du nombre d'attributs
     public Adresse() {
-        this.numeroDeLaVoie = 0;
-        this.complementNumeroVoie = null;
-        this.nomDeLaVoie = "nom de la voie inconnu";
-        this.codePostal = 0;
-        this.nomDeLaCommune = "NOM DE LA COMMUNE INCONNU";
-        this.mentionsComplementaires = null;
-    }*/
+    }
 
-    /** Constructeur avec paramètres sauf "mentions complémentaires" <br>
-     *  Il attribue une valeur null aux mentions complémentaires
+    /** Constructeur avec paramètres sauf "mentions complémentaires".<br>
+     *  Il attribue une valeur nulle aux mentions complémentaires.
      *
      * @param numeroDeLaVoie int
      * @param complementNumeroVoie String
@@ -42,7 +38,6 @@ public class Adresse {
                    String nomDeLaVoie,
                    int codePostal,
                    String nomDeLaCommune) {
-
         this.numeroDeLaVoie = numeroDeLaVoie;
         this.complementNumeroVoie = complementNumeroVoie;
         this.nomDeLaVoie = nomDeLaVoie;
@@ -52,7 +47,7 @@ public class Adresse {
 
     }
 
-    /** Constructeur avec tous les paramètres
+    /** Constructeur avec tous les paramètres.
      *
      * @param mentionsComplementaires String
      * @param numeroDeLaVoie int
@@ -67,15 +62,13 @@ public class Adresse {
                    String nomDeLaVoie,
                    int codePostal,
                    String nomDeLaCommune) {
-
         this(numeroDeLaVoie, complementNumeroVoie, nomDeLaVoie, codePostal, nomDeLaCommune);
         this.mentionsComplementaires = mentionsComplementaires;
 
     }
 
-    /** Methode d'affichage de l'adresse
-     *  4 affichages possibles en fonction
-     *  des paramètres renseignés
+    /** Methode d'affichage de l'adresse.<br>
+     *  4 affichages possibles en fonction des paramètres renseignés.
      */
     public void afficher() {
         if (this.mentionsComplementaires != null) {

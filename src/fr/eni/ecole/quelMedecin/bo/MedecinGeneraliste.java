@@ -3,22 +3,27 @@ package fr.eni.ecole.quelMedecin.bo;
 import java.time.LocalTime;
 import java.util.Scanner;
 
+/** Classe qui représente un médecin généraliste.
+ *
+ * @author laz_R
+ * @version 1.0
+ */
 public class MedecinGeneraliste {
 
-
-
+    // Attributs d'instance
     private String nom;
     private String prenom;
     private String numeroDeTelephone;
     private Adresse adresse;
     private Creneau[] creneaux = new Creneau[15];
 
+    // Attributs de classe
     public static int tarif = 25;
 
+    // Méthodes
 
-
-    // MÉTHODES
-
+    /** Constructeur sans paramètres.
+     */
     public MedecinGeneraliste() {
         this.nom = "inconnu";
         this.prenom = "inconnu";
@@ -26,14 +31,36 @@ public class MedecinGeneraliste {
         this.adresse = null;
     }
 
-    public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone, Adresse adresse) {
+    /** Constructeur avec tous les paramètres sauf "Crenaux"
+     *
+     * @param nom String
+     * @param prenom String
+     * @param numeroDeTelephone String
+     * @param adresse Adresse
+     */
+    public MedecinGeneraliste(String nom,
+                              String prenom,
+                              String numeroDeTelephone,
+                              Adresse adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
         this.adresse = adresse;
     }
 
-    public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone, Adresse adresse, Creneau[] creneaux) {
+    /** Constructeur avec tous les paramètres
+     *
+     * @param nom String
+     * @param prenom String
+     * @param numeroDeTelephone String
+     * @param adresse Adresse
+     * @param creneaux Creneau[]
+     */
+    public MedecinGeneraliste(String nom,
+                              String prenom,
+                              String numeroDeTelephone,
+                              Adresse adresse,
+                              Creneau[] creneaux) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
@@ -61,7 +88,9 @@ public class MedecinGeneraliste {
         MedecinGeneraliste.tarif = tarif;
     }
 
-
+    /** Méthode d'affichage des informations du médecin généraliste.<br>
+     *  Boucle pour l'affichage des crénaux propres à ce médecin.
+     */
     public void afficher() {
         System.out.printf("%s %s%nTéléphone : %s%nTarif : %d€%nAdresse :%n", this.nom, this.prenom, this.numeroDeTelephone, MedecinGeneraliste.getTarif());
         this.adresse.afficher();
@@ -71,6 +100,13 @@ public class MedecinGeneraliste {
         }
     }
 
+    /** Méthode d'ajout de crénaux horaires.<br>
+     *  Boucle qui ajoute un objet de type Creneau,<br>
+     *  dans un tableau de Creneaux propre à ce médecin,<br>
+     *  si cette case est vide.
+     *
+     * @param creneau Creneau
+     */
     public void ajouterCreneau(Creneau creneau) {
         for (int i = 0; i < this.creneaux.length ; i++) {
             if (this.creneaux[i] == null) {
