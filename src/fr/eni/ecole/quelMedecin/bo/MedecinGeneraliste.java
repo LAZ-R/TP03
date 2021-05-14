@@ -72,6 +72,11 @@ public class MedecinGeneraliste {
         return this.nom;
     }
 
+    public String getNomComplet() {
+        String nomComplet = this.nom.toUpperCase() + " " + this.prenom;
+        return nomComplet;
+    }
+
     public String getNumeroDeTelephone() {
         return this.numeroDeTelephone;
     }
