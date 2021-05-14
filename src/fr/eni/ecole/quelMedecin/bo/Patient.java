@@ -8,38 +8,20 @@ import java.util.Locale;
 /** Classe qui représente un patient.
  *
  * @author laz_R
- * @version 1.0
+ * @version 1.1
  */
-public class Patient {
+public class Patient extends Personne{
 
     // Attributs d'instances
-    private String nom;
-    private String prenom;
-    private String numeroDeTelephone;
     private char sexe;
     private String sexeString;
     private long numeroDeSecuriteSociale;
     private LocalDate dateDeNaissance;
     private String commentaires;
-    private Adresse adresse;
 
     // Attributs de classe
 
     // Méthodes
-
-    /** Constructeur sans paramètres.<br>
-     *  Il attribue des valeurs nulles (ou assimilées).
-     */
-    public Patient() {
-        this.nom = "inconnu";
-        this.prenom = "inconnu";
-        this.numeroDeTelephone = "inconnu";
-        this.sexe = '0';
-        this.numeroDeSecuriteSociale = 0L;
-        this.dateDeNaissance = null;
-        this.commentaires = null;
-        this.adresse = null;
-    }
 
     /** Constructeur avec tous les paramètres sauf "Commentaires".
      *
@@ -59,13 +41,11 @@ public class Patient {
                    LocalDate dateDeNaissance,
                    Adresse adresse) {
 
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
+        super(nom, prenom, numeroDeTelephone, adresse);
+
         this.sexe = sexe;
         this.numeroDeSecuriteSociale = numeroDeSecuriteSociale;
         this.dateDeNaissance = dateDeNaissance;
-        this.adresse = adresse;
 
         switch (sexe) {
             case 'F':

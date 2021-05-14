@@ -6,30 +6,17 @@ import java.util.Scanner;
 /** Classe qui représente un médecin généraliste.
  *
  * @author laz_R
- * @version 1.0
+ * @version 1.1
  */
-public class MedecinGeneraliste {
+public class MedecinGeneraliste extends Personne{
 
     // Attributs d'instance
-    private String nom;
-    private String prenom;
-    private String numeroDeTelephone;
-    private Adresse adresse;
-    private Creneau[] creneaux = new Creneau[15];
+    protected Creneau[] creneaux = new Creneau[15];
 
     // Attributs de classe
     public static int tarif = 25;
 
     // Méthodes
-
-    /** Constructeur sans paramètres.
-     */
-    public MedecinGeneraliste() {
-        this.nom = "inconnu";
-        this.prenom = "inconnu";
-        this.numeroDeTelephone = "inconnu";
-        this.adresse = null;
-    }
 
     /** Constructeur avec tous les paramètres sauf "Crenaux"
      *
@@ -42,10 +29,8 @@ public class MedecinGeneraliste {
                               String prenom,
                               String numeroDeTelephone,
                               Adresse adresse) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
-        this.adresse = adresse;
+
+        super(nom, prenom, numeroDeTelephone, adresse);
     }
 
     /** Constructeur avec tous les paramètres
@@ -61,10 +46,7 @@ public class MedecinGeneraliste {
                               String numeroDeTelephone,
                               Adresse adresse,
                               Creneau[] creneaux) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
-        this.adresse = adresse;
+        this(nom, prenom, numeroDeTelephone, adresse);
         this.creneaux = creneaux;
     }
 
@@ -97,10 +79,13 @@ public class MedecinGeneraliste {
      *  Boucle pour l'affichage des crénaux propres à ce médecin.
      */
     public void afficher() {
-        System.out.printf("%s %s%nTéléphone : %s%nTarif : %d€%nAdresse :%n", this.nom, this.prenom, this.numeroDeTelephone, MedecinGeneraliste.getTarif());
+        System.out.printf("%s %s%nTéléphone : %s%nTarif : %d€%nAdresse :%n", this.nom, this.prenom, super.getNumeroDeTelephone(), tarif);
         this.adresse.afficher();
         System.out.println("Créneaux :");
         for (int i = 0; i < this.creneaux.length ; i++) {
+            if (this.creneaux[i] == null) {
+                break;
+            }
             this.creneaux[i].afficher();
         }
     }
